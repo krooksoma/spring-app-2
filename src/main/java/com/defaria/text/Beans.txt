@@ -1,0 +1,44 @@
+/*
+* Bean Scopes - most common are the singletons, it is the default scope.
+*   One instance of the object per context definition
+*
+*   Be careful with state, because there is only one instance of a class, essentially,
+*   all state becomes potentially available to all instances of the object
+*   (keep in mind how state impacts behavior of methods and some other thread may change your data
+*   and other data may change your thread.
+*
+
+
+*   -----Prototype Bean-----
+   New instance everytime it is referenced. Becomes available for garbage collection after
+no more references are made to it
+
+   Definitions of the prototype are stored in the IoC container, instances are not.
+ - very useful for transient data or types that flex based on application state
+ */
+
+
+-------Session Beans--------
+
+    Only apply to web environments.
+    Only one instance of the bean per user session(session data separated from other sessions)
+    Definition stored in the IoC container, instance is not
+
+----Request Beans----------
+
+    Web environment only
+    One instance per request
+    Definition stored in IoC container, instance is not
+
+------ Proxy -----------
+
+    Aspected behavior applied to your classes by the framework under diverse conditions
+    All classes are wrapped with at least one proxy
+    Proxies add behavior
+    JDK and CGLib
+
+    >> Considerations
+        Proxies can only apply their behavior by calls through the proxy
+        private methods don't get exposed through the proxy so proxy behavior is not added to them
+        Internal calls don't get proxy behavior. This lack of behavior can be a source of bugs
+        Dont call reference methods on the same class and expect it to have the same behavior added to them by the proxy

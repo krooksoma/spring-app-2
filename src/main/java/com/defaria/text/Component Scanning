@@ -1,0 +1,25 @@
+----------@Component______
+    - It is the root annotation
+    Indicates that the class should be loaded into the BeanFactory
+    and configured using annotations and inspections of the class itself
+
+    Component scanning scans a base package and loads configuration automatically for each
+    bean it finds. It uses other annotation to direct the IoC container and build the dependency graph
+
+    DI is achieved with component scanning with the annotation @Autowired
+
+    This instructs the IoC container to inject the bean into the needed value at that point
+
+    Can be used on class attribute you should only set it on methods(aids on testing)
+    if dependency is required it should be inserted into the constructor, if it isn't it should be on the setter
+
+
+    @Qualifier
+    Used when multiple implementations of an interface are needed to inject a specific version by name(caution! difficult manage application)
+
+    @Value
+    if you have properties or instances that need to be injected. It instructs the IoC container to put a value into a variable for use elsewhere
+
+    To Start component scanning on your own you need java or xml configuration.
+    If using springboot you gonna auto configuration through this method by special annotation @SpringBootApplication
+    Base package defined within this configuration.
