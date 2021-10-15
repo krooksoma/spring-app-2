@@ -1,0 +1,40 @@
+----Construction------
+
+    Beans instantiated in the factory using constructors
+    Done in the correct order to make suer all dependencies are always created first
+    (Classes with the most dependencies will be instantiated at the end)
+    Handle to the class instance remains in the bean factory for the lifecycle of the application
+    for singletons, only.
+
+    Eager vs Lazy
+
+    by default all beans are instantiated eagerly
+
+    to be a truly lazy bean there can be nothing depending on them.
+    Lazy beans can be specified as lazy, but the ApplicationContext reserve the right to ignore
+
+ >>>>>>>>>>>Phase Complete<<<<<<<<<<<<<
+
+     Bean pointer still referenced in factory
+     objects have been constructed and not available to use yet
+
+\\\\\\\\\\\\\\\\Setters Called////////////////////
+
+    Post-Initialization DI
+
+    should only be done on optional beans or dynamic beans. Anything that is required for your class to operate
+    should be injected via constructor.
+
+    After instantiation Setter are called - OOP (Construct before being able to use any methods in it)
+
+    @Autowiring occurs here on all methods that are not constructors that have the autowiring annotation
+
+    Java config behaves differently
+
+>>>>>>>>>>>>Phase Completed<<<<<<<<
+
+    - Beans Fully initialized
+    - All initial dependencies injected
+    - Beans still not ready for use
+
+

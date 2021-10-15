@@ -1,0 +1,23 @@
+- Spring proxies not always available
+- Construction Phase
+- Destruction Phase
+- Leveraging JSR-250, not Spring
+
+
+---------Post Construction-----------
+
+@PostConstruct
+
+    executed after construction of the object.
+    must be a void method, it takes no parameters, the framework itself runs this method
+
+    Used for warming memory caches of data
+
+--------Pre-Destroy---------
+
+Executed before the class itself is marked for garbage collection.
+
+@PreDestroy
+
+executed right before the application context closes
+takes no parameters, and it is also void

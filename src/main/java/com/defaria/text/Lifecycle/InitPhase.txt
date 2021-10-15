@@ -1,0 +1,39 @@
+-----------Loading Bean definitions----------
+
+sources>
+        Java Configuration (objects are constructed as part of that bean definition)
+        XML(Still valid, but not preferred) files read to prime bean definitions
+        Component Scanning and auto Configuration
+
+        Priming the factory
+
+            Bean definitions loaded into the bean factory from all sources
+            Id is used to create index for the factory
+            Bean Factory only contain references at this point, nothing is instantiated. There are
+        only references pointing to metadata surrounding it about how to configure it.
+
+    Once Completed>
+        All beans loaded into the bean factory
+        beans are just references and metadata at this point
+        No object instantiation of your code has occurred.
+
+------------post-processing------------------
+
+    Work done on entire bean factory but not every bean is impacted. Any bean can be transformed of modified
+at this point prior to instantiation
+
+    Familiar example: PropertySourcesPlaceholderConfigurer
+
+    This is the first extension point of the life cycle. This interface can be used to write
+custom components to impact the BeanFactory. So if there is a need to modify the bean or its subset
+before they are instantiated, you can use the BeanFactoryPostProcessor
+
+---------------BFPP and Java Configuration---------------
+
+    Bean definitions MUST be static, removes risks of side effects of dynamic instances
+
+>>>>>>>>>>>>>>>Phase Completed<<<<<<<<<<<<
+
+Bean Factory is loaded with references
+Bean Factory and all beans in it are configured
+All System-level work is completed in Spring at this point

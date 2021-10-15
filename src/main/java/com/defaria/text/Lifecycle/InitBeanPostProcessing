@@ -1,0 +1,4 @@
+
+    final point of configuration manipulation(beans can have additional behaviors added)
+    Two types of extensible and generic processing: before and after initializer
+

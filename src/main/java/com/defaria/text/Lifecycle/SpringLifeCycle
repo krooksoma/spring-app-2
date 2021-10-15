@@ -1,0 +1,30 @@
+--------Initialization phase-----------
+
+    Most complex and interesting. Shortest phase.
+    Where there is the most impact of the behavior of the application
+
+    -> Begins when the ApplicationContext itself is created. Can be dona manually of via Runtime.
+
+    It is further broken down into two phases.
+        > Setup of the bean factory via its initialization.
+        > Bean initialization itself and instantiation phase where your bean objects
+        are truly created and then managed by the framework.
+
+
+                          [Load Bean Definitions]
+         {Bean definitions loaded > post process bean definitions} -> FOR EACH BEAN \|/
+
+                Instantiate bean > Setter called > Bean post-processor(pre-init) > Initializer > Bean post-processor(post-init) ----> Ready for use
+
+
+-------------Use Phase----------------
+
+    Phase with the longest period but most interaction with Spring IoC is behind the scenes.
+
+    You may be using abstractions from Spring but during the use phase most of the work with the framework is through
+    proxies applied during the previous or initialization phase.
+
+--------Destruction Phase----------
+
+    Occurs when the application context starts to close by the calling of close method on it.
+
