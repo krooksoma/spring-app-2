@@ -2,12 +2,15 @@ package com.defaria.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 //defines the path for application:properties
 @PropertySource("classpath:application.properties")
 @ComponentScan(basePackages = "com.defaria")
+//allow proxy to load and use this aspect
+@EnableAspectJAutoProxy
 public class ApplicationConfig {
 
 }
